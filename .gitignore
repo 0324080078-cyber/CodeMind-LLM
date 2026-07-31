@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.env
+.venv
+venv/
+*.log
+wandb/
+checkpoints/
+*.pt
+*.bin
+*.safetensors
+data/raw/
+data/cache/
+tokenizer/vocab/
+.ipynb_checkpoints/
+*.tmp

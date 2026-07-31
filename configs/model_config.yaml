@@ -1,0 +1,59 @@
+model:
+  name: "CodeMind-125M"
+  vocab_size: 32000
+  hidden_size: 768
+  num_hidden_layers: 12
+  num_attention_heads: 12
+  intermediate_size: 3072
+  max_position_embeddings: 1024
+  dropout: 0.1
+  attention_dropout: 0.1
+  layer_norm_epsilon: 1.0e-5
+  initializer_range: 0.02
+  use_cache: true
+  pad_token_id: 0
+  bos_token_id: 1
+  eos_token_id: 2
+
+training:
+  batch_size: 8
+  gradient_accumulation_steps: 4
+  learning_rate: 3.0e-4
+  weight_decay: 0.1
+  max_grad_norm: 1.0
+  warmup_steps: 500
+  max_steps: 100000
+  save_steps: 1000
+  eval_steps: 500
+  logging_steps: 50
+  fp16: true
+  seed: 42
+  output_dir: "./checkpoints"
+
+data:
+  dataset_name: "codeparrot/github-code"
+  languages:
+    - "Python"
+    - "JavaScript"
+    - "Java"
+    - "C++"
+    - "TypeScript"
+    - "Go"
+    - "Rust"
+  max_seq_length: 1024
+  num_workers: 2
+  cache_dir: "./data/cache"
+
+tokenizer:
+  model_type: "bpe"
+  vocab_size: 32000
+
+inference:
+  max_new_tokens: 512
+  temperature: 0.7
+  top_p: 0.95
+  top_k: 50
+
+server:
+  host: "0.0.0.0"
+  port: 8000
