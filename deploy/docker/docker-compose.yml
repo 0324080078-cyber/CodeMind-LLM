@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  codemind:
+    build:
+      context: ../..
+      dockerfile: deploy/docker/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - CODEMIND_ENV=production
+      - CODEMIND_API_KEY_REQUIRED=true
+    volumes:
+      - codemind_checkpoints:/app/checkpoints
+      - codemind_models:/app/models
+      - codemind_memory:/app/memory
+      - codemind_outputs:/app/outputs
+      - codemind_keys:/app/api_keys
+      - codemind_tokenizer:/app/tokenizer
+    restart: unless-stopped
+volumes:
+  codemind_checkpoints:
+  codemind_models:
+  codemind_memory:
+  codemind_outputs:
+  codemind_keys:
+  codemind_tokenizer:

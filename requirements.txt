@@ -1,31 +1,46 @@
+# Core ML
 torch==2.2.0
 torchvision==0.17.0
 torchaudio==2.2.0
 transformers==4.40.0
 datasets==2.19.0
 tokenizers==0.19.1
-diffusers==0.27.2
 accelerate==0.30.1
-wandb==0.16.6
+einops==0.7.0
+safetensors==0.4.3
+# Image Generation
+diffusers==0.27.2
+Pillow==10.3.0
+# Audio
+openai-whisper==20231117
+TTS==0.22.0
+# Memory
+chromadb==0.4.24
+# API
 fastapi==0.111.0
 uvicorn==0.29.0
 pydantic==2.7.1
+python-multipart==0.0.9
+websockets==12.0
+# Training
+wandb==0.16.6
 numpy==1.26.4
 tqdm==4.66.4
+# Config
 PyYAML==6.0.1
-sentencepiece==0.2.0
-einops==0.7.0
-safetensors==0.4.3
-aiohttp==3.9.5
-rich==13.7.1
-click==8.1.7
-pytest==8.2.0
-pygame==2.5.2
-Pillow==10.3.0
+python-dotenv==1.0.1
+# Auth
 python-jose==3.3.0
 passlib==1.7.4
 bcrypt==4.1.2
-sqlalchemy==2.0.29
-python-multipart==0.0.9
+# Games
+pygame==2.5.2
+# CLI
+rich==13.7.1
+click==8.1.7
+# Dev
+pytest==8.2.0
+black==24.4.2
 httpx==0.27.0
-xformers==0.0.25
+sentencepiece==0.2.0
+aiohttp==3.9.5

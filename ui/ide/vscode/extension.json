@@ -1,0 +1,122 @@
+{
+  "name": "codemind-ai",
+  "displayName": "CodeMind AI",
+  "description": "Standalone AI for VSCode. No cloud required.",
+  "version": "2.0.0",
+  "publisher": "codemind",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "AI",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codemind.complete",
+        "title": "CodeMind: Complete"
+      },
+      {
+        "command": "codemind.explain",
+        "title": "CodeMind: Explain"
+      },
+      {
+        "command": "codemind.fix",
+        "title": "CodeMind: Fix Error"
+      },
+      {
+        "command": "codemind.document",
+        "title": "CodeMind: Document"
+      },
+      {
+        "command": "codemind.refactor",
+        "title": "CodeMind: Refactor"
+      },
+      {
+        "command": "codemind.test",
+        "title": "CodeMind: Generate Tests"
+      },
+      {
+        "command": "codemind.chat",
+        "title": "CodeMind: Chat"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "codemind.complete",
+        "key": "ctrl+shift+space"
+      },
+      {
+        "command": "codemind.explain",
+        "key": "ctrl+shift+e"
+      },
+      {
+        "command": "codemind.fix",
+        "key": "ctrl+shift+f"
+      },
+      {
+        "command": "codemind.chat",
+        "key": "ctrl+shift+c"
+      }
+    ],
+    "configuration": {
+      "title": "CodeMind AI",
+      "properties": {
+        "codemind.serverUrl": {
+          "type": "string",
+          "default": "http://localhost:8000",
+          "description": "CodeMind server URL"
+        },
+        "codemind.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your CodeMind API key"
+        },
+        "codemind.temperature": {
+          "type": "number",
+          "default": 0.3,
+          "description": "Generation temperature"
+        },
+        "codemind.maxTokens": {
+          "type": "number",
+          "default": 256,
+          "description": "Max tokens for completion"
+        },
+        "codemind.autoComplete": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable inline completions"
+        }
+      }
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "command": "codemind.explain",
+          "group": "codemind@1"
+        },
+        {
+          "command": "codemind.fix",
+          "group": "codemind@2"
+        },
+        {
+          "command": "codemind.document",
+          "group": "codemind@3"
+        },
+        {
+          "command": "codemind.refactor",
+          "group": "codemind@4"
+        },
+        {
+          "command": "codemind.test",
+          "group": "codemind@5"
+        }
+      ]
+    }
+  }
+}

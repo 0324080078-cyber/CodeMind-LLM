@@ -1,0 +1,18 @@
+[Unit]
+Description=CodeMind AI Platform
+After=network.target
+
+[Service]
+Type=simple
+User=codemind
+WorkingDirectory=/opt/codemind
+ExecStart=/usr/bin/python3 /opt/codemind/codemind.py serve
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/codemind/access.log
+StandardError=append:/var/log/codemind/error.log
+Environment=CODEMIND_ENV=production
+Environment=CODEMIND_API_KEY_REQUIRED=true
+
+[Install]
+WantedBy=multi-user.target
